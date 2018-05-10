@@ -6,7 +6,14 @@
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
     "example": "node example/example.bs.js",
+    "precommit": "lint-staged",
     "clean": "bsb -clean-world"
+  },
+  "lint-staged": {
+    "*.{re,rei}": [
+      "refmt --in-place",
+      "git add"
+    ]
   },
   "keywords": [
     "BuckleScript",
@@ -29,6 +36,8 @@
   },
   "devDependencies": {
     "bs-platform": "^2.1.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.0",
     "mysql": "^2.15.0"
   }
 }
